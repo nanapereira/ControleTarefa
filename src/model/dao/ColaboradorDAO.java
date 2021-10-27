@@ -15,9 +15,6 @@ public class ColaboradorDAO {
         this.entityManager = entityManager;
     }
 
-    public ColaboradorDAO() {
-    }
-
     public void save(Colaborador colaborador) {
         this.entityManager.persist(colaborador);
     }
