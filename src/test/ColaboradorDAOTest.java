@@ -7,7 +7,7 @@ import javax.persistence.PersistenceUnit;
 
 import org.junit.Test;
 
-import factory.JPAUtil;
+/*import factory.JPAUtil;
 import model.entity.Colaborador;
 
 public class ColaboradorDAOTest {
@@ -25,4 +25,4 @@ public class ColaboradorDAOTest {
 		colaborador.setDataNascimento(LocalDate.now());
 		entityManager.persist(colaborador);
 	}
-}
+}*/
