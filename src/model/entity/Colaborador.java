@@ -13,6 +13,7 @@ public class Colaborador {
     private Integer id;
     private String nome;
     private String email;
+    private String senha;
     private LocalDate dataNascimento;
 
     public Integer getId() {
@@ -47,16 +48,22 @@ public class Colaborador {
         this.email = email;
     }
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     @Override
     public String toString() {
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
         return "Colaborador{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
-                ", dataNascimento=" + dataNascimento.format(formatter) +
+                ", senha='" + senha + '\'' +
+                ", dataNascimento=" + dataNascimento +
                 '}';
     }
 }

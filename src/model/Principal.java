@@ -1,6 +1,7 @@
 package model;
 
 import factory.JPAUtil;
+import model.control.Encrypt;
 import model.dao.ColaboradorDAO;
 import model.dao.GestorDAO;
 import model.entity.Colaborador;
@@ -61,7 +62,7 @@ public class Principal {
                             GestorDAO gestorDAO = new GestorDAO(entityManager);
                             gestor.setNome(nome);
                             gestor.setEmail(email);
-                            gestor.setSenha(senha);
+                            gestor.setSenha(Encrypt.encryption(senha));
 
                             //inicia a transaçao com o BD
                             entityManager.getTransaction().begin();
@@ -79,7 +80,7 @@ public class Principal {
                             GestorDAO gestorDAO = new GestorDAO(entityManager);
 
                             //testando o update
-                            System.out.println("Digite o id do colaborador que deseja alterar");
+                            System.out.println("Digite o id do gestor que deseja alterar");
                             int id = scanner.nextInt();
 
                             Gestor gestor = gestorDAO.findById(id);
@@ -95,7 +96,7 @@ public class Principal {
 
                             gestor.setNome(nome);
                             gestor.setEmail(email);
-                            gestor.setSenha(senha);
+                            gestor.setSenha(Encrypt.encryption(senha));
 
                             //inicia a transaçao com o BD
                             entityManager.getTransaction().begin();
@@ -171,12 +172,16 @@ public class Principal {
                             System.out.println("Digite o email");
                             String email = scanner.next();
 
+                            System.out.println("Digite a senha");
+                            String senha = scanner.next();
+
                             System.out.println("Digite a data de nascimento: dd/MM/yyyy ");
                             String dataNascimento = scanner.next();
 
                             Colaborador colaborador = new Colaborador();
                             ColaboradorDAO colaboradorDAO = new ColaboradorDAO(entityManager);
                             colaborador.setNome(nome);
+                            colaborador.setSenha(Encrypt.encryption(senha));
                             colaborador.setEmail(email);
 
                             colaborador.setDataNascimento(LocalDate.parse(dataNascimento, Principal.formatter));
@@ -208,11 +213,15 @@ public class Principal {
                             System.out.println("Digite o email");
                             String email = scanner.next();
 
+                            System.out.println("Digite a senha");
+                            String senha = scanner.next();
+
                             System.out.println("Digite a data de nascimento: dd/MM/yyyy ");
                             String dataNascimento = scanner.next();
 
                             colaborador.setNome(nome);
                             colaborador.setEmail(email);
+                            colaborador.setSenha(Encrypt.encryption(senha));
                             colaborador.setDataNascimento(LocalDate.parse(dataNascimento, Principal.formatter));
 
                             //inicia a transaçao com o BD
@@ -274,8 +283,6 @@ public class Principal {
                     flag2 = false;
                     break;
             }
-
-
         }
     }
 }
