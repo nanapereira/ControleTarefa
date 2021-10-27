@@ -1,7 +1,7 @@
 package model;
 
 import factory.JPAUtil;
-import model.control.Encrypt;
+import control.Encrypt;
 import model.dao.ColaboradorDAO;
 import model.dao.GestorDAO;
 import model.entity.Colaborador;
