@@ -1,23 +1,19 @@
 package model.daoTest;
 
-import factory.JPAUtil;
-import model.dao.ColaboradorDAO;
-import model.entity.Colaborador;
+import java.time.LocalDate;
+
 import org.junit.Test;
 
-import javax.persistence.EntityManager;
-import java.time.LocalDate;
+import model.entity.Colaborador;
 
 public class ColaboradorDAOTest {
 
-//    @Test
-//    public void  saveTest(){
-//        EntityManager x = JPAUtil.getEntityManager();
-//        ColaboradorDAO colaboradorDAO = new ColaboradorDAO(x);
-//        Colaborador colaborador = new Colaborador();
-//        colaborador.setId(1);
-//        colaborador.setNome("Teste");
-//        colaborador.setDataNascimento(LocalDate.now());
-//        colaboradorDAO.save(colaborador);
-//    }
+	@Test
+	public void saveTest() {
+		Colaborador colaborador = new Colaborador();
+		colaborador.setId(1);
+		colaborador.setNome("Teste");
+		colaborador.setDataNascimento(LocalDate.now());
+//		JPAUtil.getEntityManager().persist(colaborador);
+	}
 }
