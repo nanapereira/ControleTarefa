@@ -6,7 +6,7 @@ import model.entity.Colaborador;
 
 import java.util.List;
 
-public class ColaboradorDAO {
+public class ColaboradorDAO implements iDAO<Colaborador>{
 
     private EntityManager entityManager;
 
