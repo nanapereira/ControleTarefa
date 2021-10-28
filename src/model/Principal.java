@@ -413,7 +413,7 @@ public class Principal {
                             entityManager.getTransaction().commit();
 
                             System.out.println("Tarefa Alterado!");
-                            System.out.println(colaborador);
+                            System.out.println(tarefa);
 
                         } else if (option == 3) {
 
@@ -466,8 +466,3 @@ public class Principal {
         }
     }
 }
-
-
-
-
-
