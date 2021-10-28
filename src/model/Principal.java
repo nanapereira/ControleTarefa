@@ -18,7 +18,8 @@ import java.util.Scanner;
 
 public class Principal {
 
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final DateTimeFormatter formatterLocalDate = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final DateTimeFormatter formatterLocalDateTime = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:ss");
 
     public static void main(String[] args) {
 
@@ -188,7 +189,7 @@ public class Principal {
                             colaborador.setSenha(Encrypt.encryption(senha));
                             colaborador.setEmail(email);
 
-                            colaborador.setDataNascimento(LocalDate.parse(dataNascimento, Principal.formatter));
+                            colaborador.setDataNascimento(LocalDate.parse(dataNascimento, Principal.formatterLocalDate));
 
                             //inicia a transaçao com o BD
                             entityManager.getTransaction().begin();
@@ -226,7 +227,7 @@ public class Principal {
                             colaborador.setNome(nome);
                             colaborador.setEmail(email);
                             colaborador.setSenha(Encrypt.encryption(senha));
-                            colaborador.setDataNascimento(LocalDate.parse(dataNascimento, Principal.formatter));
+                            colaborador.setDataNascimento(LocalDate.parse(dataNascimento, Principal.formatterLocalDate));
 
                             //inicia a transaçao com o BD
                             entityManager.getTransaction().begin();
@@ -325,8 +326,8 @@ public class Principal {
                             Colaborador colaborador = colaboradorDAO.findById(idColaborador);
                             tarefa.setColaborador(colaborador);
                             tarefa.setDescricao(descricao);
-                            tarefa.setDataInicio(LocalDateTime.parse(dataInicio, Principal.formatter));
-                            tarefa.setDataFim(LocalDateTime.parse(dataFim, Principal.formatter));
+                            tarefa.setDataInicio(LocalDateTime.parse(dataInicio, Principal.formatterLocalDateTime));
+                            tarefa.setDataFim(LocalDateTime.parse(dataFim, Principal.formatterLocalDateTime));
                             tarefa.setStatus(status);
                             tarefa.setPrioridade(prioridade);
                             tarefa.setObservacao(observacao);
@@ -376,8 +377,8 @@ public class Principal {
                             Colaborador colaborador = colaboradorDAO.findById(idColaborador);
                             tarefa.setColaborador(colaborador);
                             tarefa.setDescricao(descricao);
-                            tarefa.setDataInicio(LocalDateTime.parse(dataInicio, Principal.formatter));
-                            tarefa.setDataFim(LocalDateTime.parse(dataFim, Principal.formatter));
+                            tarefa.setDataInicio(LocalDateTime.parse(dataInicio, Principal.formatterLocalDateTime));
+                            tarefa.setDataFim(LocalDateTime.parse(dataFim, Principal.formatterLocalDateTime));
                             tarefa.setStatus(status);
                             tarefa.setPrioridade(prioridade);
                             tarefa.setObservacao(observacao);
@@ -432,6 +433,7 @@ public class Principal {
 
 
                         } else if (option == 0) {
+                            flag = false;
                             flag = false;
                         }
                     }
