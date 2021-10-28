@@ -24,16 +24,19 @@ public class ColaboradorDAOTest {
     ColaboradorDAO colaboradorDAO = new ColaboradorDAO(entityManager);
 
     @Before
+    //Método executado no início de cada teste -> Por isso @before! Nesse caso, inicializa a conexaão com o banco.
     public void before() {
         entityManager.getTransaction().begin();
     }
 
     @After
+    //Método executado no final de cada teste -> Por isso @After! Nesse caso, encerra a conexaão com o banco.
     public void after() {
         entityManager.getTransaction().commit();
     }
 
     @Test
+    //Salva a lista do método auxiliar no banco.
     public void saveTest() {
         List<Colaborador> colaboradores = carregaTabelaColaborador();
         for (Colaborador colaborador : colaboradores) {
@@ -42,6 +45,7 @@ public class ColaboradorDAOTest {
     }
 
     @Test
+    //Busca usuário por id no banco, faz o update dos atributos e passa uma senha.
     public void updateTest() {
         Colaborador colaborador = colaboradorDAO.findById(2);
         colaborador.setNome("Pedro Joao");
@@ -52,19 +56,18 @@ public class ColaboradorDAOTest {
     }
 
     @Test
+    // Verifica usuário antes de deletar
     public void deleteTest() {
-        Colaborador colaborador = new Colaborador();
-        colaborador.setId(4);
-        colaboradorDAO.delete(colaborador);
+        try {
+            Colaborador colaborador = colaboradorDAO.findById(4);
+            colaborador.setId(4);
+            colaboradorDAO.delete(colaborador);
+        } catch (Exception e) {
+            System.out.println("Colaborador não encontrado!");
+        }
     }
-
     @Test
-    public void findByIdTest() {
-        Colaborador colaborador = colaboradorDAO.findById(3);
-        assertEquals("ana@gmail.com", colaborador.getEmail());
-    }
-
-    @Test
+    //Faz o teste comparando uma lista retornada do banco com a lista que foi passada no método save.
     public void findAllTest() {
         List<Colaborador> colaboradores = colaboradorDAO.findAll();
         for (Colaborador colaborador : colaboradores) {
@@ -75,7 +78,7 @@ public class ColaboradorDAOTest {
         }
     }
 
-    /////////////////////////////Método Auxiliar////////////////////
+    // Método auxiliar para popular o banco.
     public List<Colaborador> carregaTabelaColaborador() {
         List<Colaborador> colaboradores = new ArrayList<>();
 
