@@ -1,7 +1,5 @@
 package model.dao;
 
-import model.entity.Gestor;
-
 import java.util.List;
 
 public interface iDAO<T> {
