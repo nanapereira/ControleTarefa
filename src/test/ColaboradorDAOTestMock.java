@@ -1,31 +1,34 @@
 package test;
 
-import java.time.format.DateTimeFormatter;
-
 import javax.persistence.EntityManager;
 
+import model.entity.Colaborador;
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import factory.JPAUtil;
 import model.dao.ColaboradorDAO;
 
+
+import static org.mockito.Mockito.doNothing;
+
 @RunWith(MockitoJUnitRunner.class)
 public class ColaboradorDAOTestMock {
 
-	EntityManager entityManager = JPAUtil.getEntityManager();
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    EntityManager entityManager = JPAUtil.getEntityManager();
 
-	@Mock
-	ColaboradorDAO colaboradorDAO = new ColaboradorDAO(entityManager);
+    @Mock
+    ColaboradorDAO colaboradorDAO = new ColaboradorDAO(entityManager);
 
-//	@Test
-//	public void deleteTeste() {
-//		Colaborador colaborador = new Colaborador();
-//		colaborador.setId(4);
-//		colaboradorDAO.delete(colaborador);
-//		Mockito.verify(colaboradorDAO, Mockito.times(1)).delete(colaborador);
-//	}
+    @InjectMocks
+    Colaborador colaborador = new Colaborador();
+
+    @Test
+    public void deleteTeste() {
+        doNothing().when(colaboradorDAO).delete(colaborador);
+    }
 
 }
