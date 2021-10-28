@@ -1,4 +1,4 @@
-package control;
+package controller;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
