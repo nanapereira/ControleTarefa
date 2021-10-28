@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class Principal {
 
     private static final DateTimeFormatter formatterLocalDate = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private static final DateTimeFormatter formatterLocalDateTime = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:ss");
+    private static final DateTimeFormatter formatterLocalDateTime = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:ss");
 
     public static void main(String[] args) {
 
@@ -33,7 +33,7 @@ public class Principal {
             System.out.println("Qual ação deseja executar?");
             System.out.println("1- Cadastro de Gestor");
             System.out.println("2- Cadastro de Colaborador");
-            System.out.println("2- Cadastro de Tarefa");
+            System.out.println("3- Cadastro de Tarefa");
             System.out.println("0- Sair");
 
             int option2 = scanner.nextInt();
@@ -304,11 +304,20 @@ public class Principal {
                             System.out.println("Digite a descrição");
                             String descricao = scanner.next();
 
+                            //limpando o buffer do teclado
+                            scanner.nextLine();
+
                             System.out.println("Digite a data de início: dd/MM/yyyy hh:ss");
                             String dataInicio = scanner.next();
 
+                            //limpando o buffer do teclado
+                            scanner.nextLine();
+
                             System.out.println("Digite a data final: dd/MM/yyyy ");
                             String dataFim = scanner.next();
+
+                            //limpando o buffer do teclado
+                            scanner.nextLine();
 
                             System.out.println("Digite o status da tarefa ");
                             String status = scanner.next();
@@ -358,11 +367,20 @@ public class Principal {
                             System.out.println("Digite a descrição");
                             String descricao = scanner.next();
 
-                            System.out.println("Digite a data de início: dd/MM/yyyy hh:ss");
+                            //limpando o buffer do teclado
+                            scanner.nextLine();
+
+                            System.out.println("Digite a data de início: dd/MM/yyyy HH:ss");
                             String dataInicio = scanner.next();
 
-                            System.out.println("Digite a data final: dd/MM/yyyy ");
+                            //limpando o buffer do teclado
+                            scanner.nextLine();
+
+                            System.out.println("Digite a data final: dd/MM/yyyy HH:ss");
                             String dataFim = scanner.next();
+
+                            //limpando o buffer do teclado
+                            scanner.nextLine();
 
                             System.out.println("Digite o status da tarefa ");
                             String status = scanner.next();
