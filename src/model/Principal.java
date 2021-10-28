@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class Principal {
 
     private static final DateTimeFormatter formatterLocalDate = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private static final DateTimeFormatter formatterLocalDateTime = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:ss");
+    private static final DateTimeFormatter formatterLocalDateTime = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
     public static void main(String[] args) {
 
@@ -307,14 +307,14 @@ public class Principal {
                             //limpando o buffer do teclado
                             scanner.nextLine();
 
-                            System.out.println("Digite a data de início: dd/MM/yyyy hh:ss");
-                            String dataInicio = scanner.next();
+                            System.out.println("Digite a data de início: dd/MM/yyyy HH:mm");
+                            String dataInicio = scanner.nextLine();
 
                             //limpando o buffer do teclado
                             scanner.nextLine();
 
-                            System.out.println("Digite a data final: dd/MM/yyyy ");
-                            String dataFim = scanner.next();
+                            System.out.println("Digite a data final: dd/MM/yyyy HH:mm");
+                            String dataFim = scanner.nextLine();
 
                             //limpando o buffer do teclado
                             scanner.nextLine();
@@ -335,6 +335,9 @@ public class Principal {
                             Colaborador colaborador = colaboradorDAO.findById(idColaborador);
                             tarefa.setColaborador(colaborador);
                             tarefa.setDescricao(descricao);
+
+                            System.out.println(dataInicio);
+
                             tarefa.setDataInicio(LocalDateTime.parse(dataInicio, Principal.formatterLocalDateTime));
                             tarefa.setDataFim(LocalDateTime.parse(dataFim, Principal.formatterLocalDateTime));
                             tarefa.setStatus(status);
@@ -348,7 +351,7 @@ public class Principal {
                             //comita
                             entityManager.getTransaction().commit();
 
-                            System.out.println(colaborador);
+                            System.out.println(tarefa);
                             System.out.println("Tarefa Cadastrada!");
 
                         } else if (option == 2) {
@@ -370,14 +373,14 @@ public class Principal {
                             //limpando o buffer do teclado
                             scanner.nextLine();
 
-                            System.out.println("Digite a data de início: dd/MM/yyyy HH:ss");
-                            String dataInicio = scanner.next();
+                            System.out.println("Digite a data de início: dd/MM/yyyy HH:mm");
+                            String dataInicio = scanner.nextLine();
 
                             //limpando o buffer do teclado
                             scanner.nextLine();
 
-                            System.out.println("Digite a data final: dd/MM/yyyy HH:ss");
-                            String dataFim = scanner.next();
+                            System.out.println("Digite a data final: dd/MM/yyyy HH:mm");
+                            String dataFim = scanner.nextLine();
 
                             //limpando o buffer do teclado
                             scanner.nextLine();
