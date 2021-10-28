@@ -10,7 +10,7 @@ public class Tarefa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@ManyToMany
+	@ManyToOne
 	private Colaborador colaborador; //id do colaborador q vai passar
 	private String descricao;
 	private LocalDateTime dataInicio;
