@@ -2,6 +2,7 @@ package model.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "tarefa")
@@ -82,4 +83,21 @@ public class Tarefa {
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
+
+	@Override
+	public String toString() {
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+		return "Tarefa{" +
+				"id=" + id +
+				", colaborador=" + colaborador +
+				", descricao='" + descricao + '\'' +
+				", dataInicio=" + dataInicio.format(formatter) +
+				", dataFim=" + dataFim.format(formatter) +
+				", status='" + status + '\'' +
+				", prioridade='" + prioridade + '\'' +
+				", observacao='" + observacao + '\'' +
+				'}';
+	}
 }
