@@ -6,6 +6,8 @@
 
 #### Java 15
 #### Junit 4
-#### git version 2.33.0.windows.1
-#### hibernate-release-5.6.0.Final e JPA
-#### Mysql ...
+#### git 2.33.0
+#### hibernate 5.6.0
+#### Mysql e JPA
+#### Node.JS 14
+#### Anjular 12
