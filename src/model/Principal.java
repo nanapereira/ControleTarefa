@@ -1,7 +1,7 @@
 package model;
 
 import factory.JPAUtil;
-import control.Encrypt;
+import controller.Encrypt;
 import model.dao.ColaboradorDAO;
 import model.dao.GestorDAO;
 import model.dao.TarefaDAO;
