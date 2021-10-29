@@ -1,0 +1,48 @@
+/* style body */
+body {
+    background-image: url(img/1.png);
+  }
+
+/* box backgroud da table */
+.box{
+    background-color: white;
+}
+
+/* style table */
+
+table{
+    border-collapse:separate;
+    border-spacing: 10px;
+}
+
+#box-table{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin:5vh;    
+}
+
+th{
+    text-align: center;
+}
+
+#topper{
+    color:#086A87;
+    font-size: 20px;
+}
+
+tr{
+    text-align: center;
+}
+
+/* edite button confirmar */
+#confirme{
+    background-color:#E6E6E6 ;
+    margin-left:945px;
+    width: 280px;
+    color:#086A87;
+    font-weight: bold;
+}
+
+
