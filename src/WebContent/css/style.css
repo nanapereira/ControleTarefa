@@ -21,7 +21,7 @@ input:focus, label:focus{
 body{
     padding-top: 5vh; /* view height - 5% da tela */
     background-image: url('../img/1.png');
-    background-size: auto;
+    background-size: cover;
 }
 
 /* form */

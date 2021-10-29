@@ -18,15 +18,15 @@
           </div>
           <div class="full-box spacing">
             <label for="name">Nome completo</label>
-            <input type="text" name="name" id="name" placeholder="Digite seu nome completo" data-max-length="20">
+            <input type="text" name="name" id="name" placeholder="Digite seu nome completo" data-max-length="20" data-only-letters>
         </div>
         <div class="half-box spacing">
             <label for="password">Senha</label>
-            <input type="password" name="password" id="password" placeholder="Digite a sua senha">
+            <input type="password" name="password" id="password" placeholder="Digite a sua senha" data-required data-password-validate>
         </div>
         <div class="half-box">
             <label for="passconfirmation">Confirme sua senha</label>
-            <input type="passconfirmation" name="passconfirmation" id="passconfirmation" placeholder="Confirme a sua senha">
+            <input type="password" name="passconfirmation" id="passconfirmation" placeholder="Confirme a sua senha" data-equal="password" data-required>
         </div>
         <div>
             <input type="checkbox" name="admin" id="admin">

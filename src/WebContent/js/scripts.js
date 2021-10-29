@@ -4,11 +4,15 @@ class Validator {
             'data-required',
             'data-min-length',
             'data-max-length',
-            'data-email-validate'
+            'data-email-validate',
+            'data-only-letters',
+            'data-equal',
+            'data-password-validate',
         ]
     }
+
     // iniciar a validação de todos os campos
-    validate(form){
+    validate(form) {
 
         // resgata todas as validações
         let currentValidations = document.querySelectorAll('form .error-validation');
@@ -22,8 +26,6 @@ class Validator {
 
         // transformo uma HTMLCollections -> array (pra dar o loop)
         let inputsArray = [...inputs];
-
-        // ver funcionando console.log(inputsArray);
 
         //loop nos inputs e validação mediante ao que for encontrado
         inputsArray.forEach(function(input){
@@ -54,7 +56,6 @@ class Validator {
         let errorMessage = `O campo precisa ter pelo menos ${minValue} caracteres`;
 
         if(inputLength < minValue){
-            // console.log(errorMessage);
 
             this.printMessage(input, errorMessage);
         }
@@ -86,12 +87,62 @@ class Validator {
 
     }
 
+    // valida se o campo tem apenas letras
+
+    onlyletters(input){
+        let re = /^[A-Za-z]+$/;
+
+        let inputValue = input.value;
+
+        let errorMessage = `Este campo não aceita números e nem caracteres especiais`;
+
+        if(!re.test(inputValue)){
+            this.printMessage(input, errorMessage);
+        }
+    }
+
+    //valida a confirmação da password(se um campo é igual ao outro)
+    equal(input, inputName){
+        let inputToCompare = document.getElementsByName(inputName)[0];
+
+        let errorMessage = `Este campo precisa estar igual a ${inputName}`;
+
+        if(input.value != inputToCompare.value){
+            this.printMessage(input, errorMessage);
+        } 
+    }
+
+    // valida o campo da senha
+    passwordvalidate(input){
+         // explodir string em array
+    let charArr = input.value.split("");
+
+    let uppercases = 0;
+    let numbers = 0;
+
+    for(let i = 0; charArr.length > i; i++) {
+      if(charArr[i] === charArr[i].toUpperCase() && isNaN(parseInt(charArr[i]))) {
+        uppercases++;
+      } else if(!isNaN(parseInt(charArr[i]))) {
+        numbers++;
+      }
+    }
+
+    if(uppercases === 0 || numbers === 0) {
+      let errorMessage = `A senha precisa um caractere maiúsculo e um número`;
+
+      this.printMessage(input, errorMessage);
+    }
+}
+
+
     // método para imprimir mensagens de erro na página
     printMessage(input, msg){
 
         // checa os erros presentes no input
         let errorQty = input.parentNode.querySelector('.error-validation');
 
+        // imprimir erro só se não tiver erros
         if(errorQty === null){
             let template = document.querySelector('.error-validation').cloneNode(true);
 
@@ -116,7 +167,7 @@ class Validator {
         }
     }
 
-    // limpa as validações da tela
+    // remove todas as validações para fazer a checagem novamente
     cleanValidations(validations){
       validations.forEach(el => el.remove());  
     }
