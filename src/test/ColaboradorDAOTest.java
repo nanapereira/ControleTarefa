@@ -1,6 +1,6 @@
 package test;
 
-import control.Encrypt;
+import controller.Encrypt;
 import factory.JPAUtil;
 import model.dao.ColaboradorDAO;
 import model.entity.Colaborador;
